@@ -1,0 +1,161 @@
+<!-- list -->
+<ul class="nav">
+    <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+        <span translate="aside.nav.HEADER">Navigation</span>
+    </li>
+    <!--   <li>
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>  
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
+      <span class="" translate="aside.nav.DASHBOARD">Dashboard</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span translate="aside.nav.DASHBOARD">Dashboard</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.dashboard-v1">
+          <span>Dashboard v1</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.dashboard-v2">
+          <b class="label bg-info pull-right">N</b>
+          <span>Dashboard v2</span>
+        </a>
+      </li>
+    </ul>
+  </li> -->
+    <li ui-sref-active="active">
+        <a ui-sref="app.dashboard-v1">
+            <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
+            <span class="" translate="aside.nav.DASHBOARD">Dashboard</span>
+        </a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.mail.list">
+            <b class="badge bg-info pull-right">9</b>
+            <i class="glyphicon glyphicon-envelope icon text-info-lter"></i>
+            <span class="" translate="aside.nav.EMAIL">Email</span>
+        </a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="apps.contacts">
+            <b class="badge bg-info pull-right">9</b>
+            <i class="fa fa-phone icon text-success-lter"></i>
+            <span class="" translate="aside.nav.CONTACTS">联系人</span>
+        </a>
+    </li>
+    <li class="line dk"></li>
+    <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+        <span translate="aside.nav.components.MANAGE">manage</span>
+    </li>
+    <!-- user manage start -->
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+            <b class="badge bg-info pull-right">3</b>
+            <i class="icon-users"></i>
+            <span translate="manage.user.USER">用户管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li class="nav-sub-header">
+                <a href>
+                    <span>UserManage</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="user.list">
+                    <span>用户列表</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <!-- user manage end -->
+    <!-- role manage start -->
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+            <b class="badge bg-info pull-right">3</b>
+            <i class="fa fa-users"></i>
+            <span translate="manage.role.ROLE">角色管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li class="nav-sub-header">
+                <a href>
+                    <span>Layout</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="roles.list">
+                    <span>角色列表</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <!-- role manage end -->
+    <!-- module manage start -->
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+            <b class="badge bg-info pull-right">3</b>
+            <i class="icon-grid"></i>
+            <span translate="manage.module.MODULE">模块管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li class="nav-sub-header">
+                <a href>
+                    <span>Moduls</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="moduls.list">
+                    <span>模块列表</span>
+                </a>
+            </li>
+            <!--  <li ui-sref-active="active">
+        <a ui-sref="layout.fullwidth">
+          <span>Full width</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="layout.mobile">
+          <span>Mobile</span>
+        </a>
+      </li>  -->
+        </ul>
+    </li>
+    <!-- module manage end -->
+    <li class="line dk hidden-folded"></li>
+    <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+        <span translate="aside.nav.your_stuff.STUFF">Your Stuff</span>
+    </li>
+    <li>
+        <a ui-sref="app.page.profile">
+            <i class="icon-user icon text-success-lter"></i>
+            <b class="badge bg-success pull-right">30%</b>
+            <span translate="aside.nav.your_stuff.PROFILE">Profile</span>
+        </a>
+    </li>
+    <li>
+        <a ui-sref="app.docs">
+            <i class="icon-question icon"></i>
+            <span translate="aside.nav.your_stuff.DOCUMENTS">Documents</span>
+        </a>
+    </li>
+</ul>
+<!-- / list

@@ -1,0 +1,57 @@
+<div class="bg-light lter b-b wrapper-md">
+    <ul class="breadcrumb bg-white b-a">
+        <li><a href=""><i class="fa fa-home"></i>&nbsp;&nbsp;简数科技</a></li>
+        <li><a href="">角色管理</a></li>
+        <li class="active">角色列表</li>
+    </ul>
+</div>
+<!-- toaster directive -->
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+<!-- / toaster directive -->
+<div ng-controller="RolesList">
+    <div class="wrapper-md b-b">
+        <div class="row">
+            <div class="col-lg-2 text-center" ng-repeat="item in groups">
+                <a ng-dblclick="editItem(item)" tooltip="单击查看关联模块;双击修改!" ng-class="{'btn-info': item.selected}" class="block panel wrapper-sm hover-anchor btn-default item b-a" ng-click="selectGroup(item)">
+                    <span class="text-sm">{{ item.name}}</span>
+                    <span ng-click="deleteGroup(item)" class="pull-right hover-action"><i class="fa fa-times"></i></span>
+                    <!-- <span class="bottom text-right w-full">
+                      <i class="fa fa fa-times text-muted m-r-sm" ng-click='deleteGroup(item)'></i>
+                    </span> -->
+                    <input type="text" class="form-control pos-abt" ng-show="item.editing" ng-blur="doneEditing(item)" ng-model="item.name" style="top:11%;left:0;" ui-focus="item.editing">
+                </a>
+            </div>
+            <div class="col-lg-1 text-center">
+                <a tooltip="点击新增!" class="block panel wrapper-sm btn-success item" ng-click="createGroup()">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </div>
+            <!-- <a href class="btn btn-md btn-default" ng-click="createGroup()"><i class="fa fa-plus"></i></a> -->
+        </div>
+    </div>
+    <div class="wrapper-md b-b">
+        <div class="panel b-a ng-scope">
+            <div class="panel-heading h4 b-light">
+                关联模块
+            </div>
+            <div class="panel-body b-b" ng-repeat="parent in moduleInit">
+                <div class="h5">
+                    {{parent.name}} <a href="javascript:;"> 全选</a>
+                </div>
+                <label ng-repeat="child in parent.children" class="h6 i-checks i-checks-sm wrapper-md">
+                    <input type="checkbox" ng-model="child.checked" ng-true-value="true">
+                    <i></i> {{child.name}}
+                </label>
+            </div>
+            <div class="panel-body">
+                <button class="btn btn-success col-lg-1 pull-right" ng-click="save()">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/ng-template" id="editContent">
+    <div ng-include="'tpl/editModel.html'"></div>
+</script>
+<script type="text/ng-template" id="delContent">
+    <div ng-include="'tpl/delModel.html'"></div>
+</script>

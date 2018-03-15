@@ -1,0 +1,85 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{modelName}}</h3>
+</div>
+<div class="modal-body wrapper-lg">
+    <div class="row">
+        <div class="col-sm-6 b-r">
+            <h3 class="m-t-none m-b font-thin">基本信息</h3>
+            <form role="form">
+                <div class="form-group">
+                    <label>用户名</label>
+                    <input type="text" class="form-control" ng-model="data.username" ng-disabled="{{unameStatus}}" }>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">性别</label>
+                    <br>
+                    <label class="i-checks wrapper-sm padder-md">
+                        <input type="radio" ng-model="data.sex" ng-value="0" name="sex" checked>
+                        <i></i> 男
+                    </label>
+                    <label class="i-checks wrapper-sm padder-md">
+                        <input type="radio" ng-model="data.sex" ng-value="1" name="sex">
+                        <i></i> 女
+                    </label>
+                    <!-- <div>
+                        <select ui-jq="chosen" class="w-md">
+                            <option value="A">男性</option>
+                            <option value="H">女性</option>
+                        </select>
+                    </div> -->
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input type="password" class="form-control" ng-model="data.password" placeholder="Enter password">
+                </div>
+                <div class="form-group">
+                    <label>邮箱</label>
+                    <input type="email" class="form-control" ng-model="data.email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label>电话</label>
+                    <input type="text" class="form-control" ng-model="data.phone" placeholder="Enter phone">
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-6">
+            <h3 class="m-t-none m-b font-thin">其他信息</h3>
+            <form role="form">
+                <div class="form-group">
+                    <label>昵称</label>
+                    <input type="text" class="form-control" ng-model="data.nickName" placeholder="Enter nickName">
+                </div>
+                <div class="form-group">
+                    <label>真实姓名</label>
+                    <input type="text" class="form-control" ng-model="data.realname" placeholder="Enter realname">
+                </div>
+                <div class="form-group">
+                    <label>个人网站</label>
+                    <input type="text" class="form-control" ng-model="data.website" placeholder="Enter website">
+                </div>
+                <div class="form-group">
+                    <label>地址</label>
+                    <input type="text" class="form-control" ng-model="data.address" placeholder="Enter address">
+                </div>
+                <div class="form-group">
+                    <label>个人简介</label>
+                    <input type="text" class="form-control" ng-model="data.profile" placeholder="Enter profile">
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <h3 class="m-t-none font-thin m-t">权限信息</h3>
+                <label ng-repeat="role in roles" class="h6 i-checks i-checks-sm wrapper padder-md">
+                    <input type="checkbox" ng-model="role[2]" ng-true-value="true">
+                    <i></i> {{role[1]}}
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-12">
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <a href="" class="btn btn-primary col-sm-12" ng-click="save()">保存</a>
+</div>

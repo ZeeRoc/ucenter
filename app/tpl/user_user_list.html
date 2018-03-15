@@ -1,0 +1,149 @@
+<div class="bg-light lter b-b wrapper-md">
+    <ul class="breadcrumb bg-white b-a">
+        <li><a href=""><i class="fa fa-home"></i>&nbsp;&nbsp;简数科技</a></li>
+        <li><a href="">用户管理</a></li>
+        <li class="active">用户列表</li>
+    </ul>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+<div class="wrapper-md">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <div class="row row-sm text-center">
+                <div class="col-xs-4">
+                    <a href="" class="block panel padder-v bg-primary item">
+                        <span class="text-white font-thin h1 block">930</span>
+                        <span class="text-muted text-xs">会员总数</span>
+                        <span class="bottom text-right w-full">
+                      <i class="fa fa-cloud-upload text-muted m-r-sm"></i>
+                    </span>
+                    </a>
+                </div>
+                <div class="row row-sm text-center">
+                    <div class="row row-sm text-center">
+                        <div class="col-xs-4">
+                            <a href="" class="block panel padder-v bg-danger item">
+                                <span class="text-white font-thin h1 block">930</span>
+                                <span class="text-muted text-xs">禁用会员</span>
+                                <span class="bottom text-right w-full">
+                      <i class="fa fa-cloud-upload text-muted m-r-sm"></i>
+                    </span>
+                            </a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a href="" class="block panel padder-v bg-info item">
+                                <span class="text-white font-thin h1 block">432</span>
+                                <span class="text-muted text-xs">删除会员</span>
+                                <span class="top text-left">
+                      <i class="fa fa-caret-up text-warning m-l-sm"></i>
+                    </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="panel panel-default" ng-controller="UserList">
+                <div class="panel-heading">
+                    用户列表
+                </div>
+                <br>
+                <div class="row wrapper">
+                    <!-- <div class="col-sm-2">
+                        <div class="input-group m-b">
+                            <span class="input-group-addon">编号</span>
+                            <input type="text" ng-model="id" class="form-control input-sm" placeholder="Username">
+                        </div>
+                    </div> -->
+                    <div class="col-sm-2">
+                        <div class="input-group m-b">
+                            <span class="input-group-addon">UID</span>
+                            <input type="text" ng-model="uid" class="form-control input-sm" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="input-group m-b">
+                            <span class="input-group-addon">用户名</span>
+                            <input type="text" ng-model="username" class="form-control input-sm" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="input-group m-b">
+                            <span class="input-group-addon">邮箱</span>
+                            <input type="text" ng-model="email" class="form-control input-sm" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="btn-group" ng-init="UserStatus = 0">
+                            <label class="btn btn-sm btn-info ng-untouched ng-valid active ng-dirty ng-valid-parse" ng-model="UserStatus" btn-radio="0"><i class="fa fa-check text-active"></i>正常</label>
+                            <label class="btn btn-sm btn-dark ng-untouched ng-valid ng-dirty" ng-model="UserStatus" btn-radio="1"><i class="fa fa-check text-active"></i>已禁用</label>
+                            <label class="btn btn-sm btn-danger ng-untouched ng-valid ng-dirty" ng-model="UserStatus" btn-radio="2"><i class="fa fa-check text-active"></i>已删除</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="input-group m-b">
+                            <button class="btn m-b-sm btn-sm btn-primary btn-addon" ng-click="search()"><i class="fa fa-search"></i>&nbsp;&nbsp;查找&nbsp;&nbsp;</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-2" ng-controller="Create">
+                        <div class="input-group m-b">
+                            <button class="btn m-b-sm btn-sm btn-success btn-addon" ng-click="NewUser(roles,'lg')"><i class="fa fa-plus"></i>&nbsp;&nbsp;新建&nbsp;&nbsp;</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped b-t b-light">
+                        <thead>
+                            <tr>
+                                <th>UID</th>
+                                <th>用户名</th>
+                                <th>昵称</th>
+                                <th>邮箱</th>
+                                <th>电话</th>
+                                <th>性别</th>
+                                <th>登录次数</th>
+                                <th>最后登陆时间</th>
+                                <th>禁用</th>
+                                <th style="width:102px;">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in list">
+                                <td>{{item.uid}}</td>
+                                <td>{{item.username}}</td>
+                                <td>{{item.nickName}}</td>
+                                <td>{{item.email}}</td>
+                                <td>{{item.phone}}</td>
+                                <td>{{item.sex==0?'男':'女'}}</td>
+                                <td>{{item.count}}</td>
+                                <td>{{item.modifyDate}}</td>
+                                <td>
+                                    <label class="i-switch m-t-xs m-r">
+                                        <input type="checkbox" ng-checked="{{item.status==0?true:false}}" ng-click="status($event,{{item.id}},'{{item.username}}')">
+                                        <i></i>
+                                    </label>
+                                </td>
+                                <td>
+                                    <button ng-controller="Edit" class="btn btn-sm btn-info" ng-click="open({{roles}},{{item}},'lg')"><i class="glyphicon glyphicon-edit"></i></button>
+                                    <button ng-controller="Delete" class="btn btn-sm btn-danger" ng-click="open({{item}})"><i class="glyphicon glyphicon-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <footer class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-12 text-right text-center-xs">
+                            <div ng-controller="PaginationDemoCtrl">
+                                <pagination total-items="TotalItems" ng-model="CurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" first-text="首页" ng-change="change(CurrentPage)" last-text="尾页" previous-text="上一页" next-text="下一页"></pagination>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script type="text/ng-template" id="editContent">
+            <div ng-include="'tpl/editModel.html'"></div>
+        </script>
+        <script type="text/ng-template" id="delContent">
+            <div ng-include="'tpl/delModel.html'"></div>
+        </script>
